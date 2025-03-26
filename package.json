@@ -1,0 +1,29 @@
+{
+  "name": "@hexlet/code",
+  "version": "1.0.0",
+  "description": "gendiff app",
+  "keywords": [
+    "gendiff"
+  ],
+  "homepage": "https://github.com/pavel-pj/frontend-project-46#readme",
+  "bugs": {
+    "url": "https://github.com/pavel-pj/frontend-project-46/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pavel-pj/frontend-project-46.git"
+  },
+  "license": "MIT",
+  "author": "Pavel Voroshilov",
+  "type": "import",
+  "main": "bin/gendiff.js",
+  "bin": {
+    "code": "bin/gendiff.js"
+  },
+  "scripts": {
+    "test": "tests"
+  },
+  "dependencies": {
+    "commander": "^13.1.0"
+  }
+}
