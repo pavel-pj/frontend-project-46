@@ -13,10 +13,11 @@
     "type": "git",
     "url": "git+https://github.com/pavel-pj/frontend-project-46.git"
   },
+
   "license": "MIT",
   "author": "Pavel Voroshilov",
-  "type": "import",
-  "main": "bin/gendiff.js",
+  "type": "module",
+  "main": "src/index.js",
   "bin": {
     "code": "bin/gendiff.js"
   },
