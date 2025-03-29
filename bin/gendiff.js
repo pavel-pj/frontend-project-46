@@ -1,8 +1,7 @@
-import { Command } from 'commander';
+#!/usr/bin/env node
+import {program} from 'commander';
 import parser from '../src/parsers/index.js';
-
-const program = new Command();
-
+ 
 program
     .name('gendiff')
     .version('1.0.0')
@@ -26,7 +25,4 @@ program
         'medium-sized, burrowing, nocturnal mammal',
     );
 */
-
-
-
 program.parse();
