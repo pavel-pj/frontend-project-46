@@ -1,0 +1,11 @@
+{
+  "common2": "name",
+  "VALA": "name",
+  "common5": {
+    "setting1": "Value 1",
+    "citys" : {
+      "name": "Paris",
+      "sqiare": "bool"
+    }
+  }
+}

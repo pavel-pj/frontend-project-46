@@ -2,10 +2,11 @@ import _  from 'lodash' ;
 
 export default (dataRaw1, dataRaw2) => {
 
-  const data1 = normalizeValues(dataRaw1);
-  const data2 = normalizeValues(dataRaw2);
+  const data1 = dataRaw1; // normalizeValues(dataRaw1);
+  const data2 = dataRaw2;// normalizeValues(dataRaw2);
 
-
+  console.log(data1);
+    console.log(data2);
 
   const keys1 = Object.keys(data1);
   const keys2 = Object.keys(data2);
@@ -72,5 +73,6 @@ const normalizeValues =(data)=> {
         }
         result[key] = value;
     }
+    //console.log(result)
     return result;
 }
