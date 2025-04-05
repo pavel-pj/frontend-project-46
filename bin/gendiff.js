@@ -8,13 +8,14 @@ program
     .description('Compares two configuration files and shows a difference.')
     .argument('<filepath1>', 'path to first file, supported formats: json, yaml, yml')
     .argument('<filepath2>', 'path to second file, supported formats: json, yaml, yml')
-    .option (
+    .option(
         '-f, --format [type]',
-        'output format',
+        'output format, supported formats: plain, json, stylish',
+        'stylish',
     )
-    .action((file1, file2) => {
-        parser(file1,file2);
-    });
+   .action((filepath1, filepath2, options) => {
+   parser(filepath1, filepath2, options.format);
+});
     /*
     .option (
         '--uuu -u',

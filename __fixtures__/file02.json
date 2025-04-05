@@ -1,7 +1,5 @@
 {
-  "VALA": "name",
-  "common": {
-    "follow": false,
-    "setting1": "Value 1"
+  "group1": {
+    "nest": "str"
   }
 }

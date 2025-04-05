@@ -1,8 +1,9 @@
 import parse from './parsers/Parsers.js';
-import gendiff from './GenDiff.js';
+//import gendiff from './GenDiff.js';
 import gentree from './genTree.js';
-//import normalize from './utils/normalize.js';
-export default (file1, file2) => {
+import formater from './formats/Formater.js';
+
+export default (file1, file2 , format = 'stylish') => {
   const data1 = parse(file1);
   const data2 = parse(file2);
 
@@ -11,13 +12,12 @@ export default (file1, file2) => {
 
   //console.log(data2);
 
-  const result = gentree(data1,data2 )
-  console.log(result)
+  const result = gentree(data1,data2)
+ // console.log (result)
+ //  console.log(JSON.stringify(result))
  // console.log("============================")
- // console.log("Результат")
-  //console.log(result);
-  //const result = gendiff(data1,data2)
-   // console.log(  result);
-  //return JSON.stringify(result);
- 
+  const formated = formater(result,format)
+  return formated;
+
+
 };
