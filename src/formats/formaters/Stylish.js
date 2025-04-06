@@ -1,7 +1,7 @@
 
 import _  from 'lodash' ;
 
-const sylish = (dataStart) =>{
+const stylish = (dataStart) =>{
   console.log(JSON.stringify(dataStart));
 
   const symbol = ' ';
@@ -11,86 +11,81 @@ const sylish = (dataStart) =>{
     const prefixies = {
       added:'+ ',
       deleted: '- ',
-      default1: '  ',
+      default: '  ',
     }
-    return prefixies[type] || prefixies.default1;
+    return prefixies[type] || prefixies.default;
   }
 
-  const normalizeNode(node) {
-    
+  const getIndent = (level) => getPrefixies('default').repeat(level);
+
+  const normalizeNode =(node, level)=> {
+    if (!_.isPlainObject(node) ) {
+      return node;
+    }
+
+    const keys = Object.keys(node);
+    const result = keys.map((item)=>{
+
+      const value = _.isPlainObject(node[item]) ? normalizeNode(item,level + 2) : node[item];
+
+      return `${getIndent(level+3)}${item}: ${value}\n`;
+
+
+    }).join("\n")
+
+    return "{\n" + result + getIndent(level +1 ) + "}";
+
   }
 
 
   const iter = (data , level) =>
   {
 
-
-
     const result = data.map(( item) => {
 
-    //Для структур deleted,added, которые добавлены без вложенных пометок нет поля type
-      if (!Object.hasOwn(item,'type') ) {
+        const {type,value,key} = item
 
-         return iter(item, {current: level.next + 1});
 
-      }
+      if (type === 'nested') {
 
-      if (item.type === 'nested') {
-        const nestedKey = getPrefixies() + `${item.key}: {\n`;
+        const nestedKey = getIndent(level) + getPrefixies( ) + key + ": {\n";
 
-        const body = iter(item.value , {current: level.next + 1}).join('')
+        const body = iter(value , level +1)
 
-        return indent + `${nestedKey}${body}`  +  symbol.repeat(4* (level.next +1)) + `}\n`;
+        return ` ${nestedKey}${body}`   + `\n${getIndent(level +1)}}`;
 
 
       }
 
 
-     if (item.type === 'updated') {
+
+     if (type === 'updated') {
+
+       const [removedNode, addedNode]  = value;
 
 
-       const obj1 = {};
-       obj1[item.key] = item.value[0];
-
-       const obj2 = {};
-       obj2[item.key] = item.value[1];
-
-       const lastVal =  indent + getPrefixies('deleted')  + iter(obj1,{current: 0, next:level.next }) + "\n"
-       const newVal = indent + getPrefixies('added') + iter(obj2,{current: 0, next:level.next  }) + "\n"
+       const lastVal =  getIndent(level) + getPrefixies('deleted') + key +": "  + normalizeNode(removedNode,level) +"\n"
+       const newVal = getIndent(level) + getPrefixies('added') + key + ": " + normalizeNode(addedNode,level)
        return lastVal + newVal;
 
      }
 
-        if (_.isPlainObject(item.value) === false) {
-            return  indent + getPrefixies('added') + `${item.key}: ${item.value}` + "\n";
-        }
-
-        const nestedKey = getPrefixies('added') + `${item.key}: {\n`;
-        const body = iter([item.value] , {current: level.next })
-        return  indent +`${nestedKey}${body}\n` + indent +  smallIndent +"}\n";
-
-
+      return  getIndent(level) + getPrefixies(type) + key + ": " + normalizeNode(value,level)  ;
 
 
    } );
 
-
-
-   return result;
+   return result.join('\n');
 
 
  }
 
- //const result = iter(dataStart, 0)
- const result = "{\n" + iter(dataStart, {current:0}).join('')  + "\n}" ;
+ const result = "{\n" + iter(dataStart, 0)   + "\n}" ;
 
  console.log(result )
 
 
-// return result;
-
-
 }
 
-export default sylish;
+export default stylish;
 
