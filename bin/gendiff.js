@@ -2,6 +2,7 @@
 import {program} from 'commander';
 import parser from '../src/index.js';
 
+
 program
     .name('gendiff')
     .version('1.0.0')
@@ -13,8 +14,9 @@ program
         'output format, supported formats: plain, json, stylish',
         'stylish',
     )
-   .action((filepath1, filepath2, options) => {
-   parser(filepath1, filepath2, options.format);
+
+.action((filepath1, filepath2, options) => {
+    console.log(parser(filepath1, filepath2, options.format));
 });
     /*
     .option (
@@ -27,3 +29,4 @@ program
     );
 */
 program.parse();
+
