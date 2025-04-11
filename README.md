@@ -26,9 +26,7 @@ $ make install
 Help
 
 Use -h or --help flag for help
- 
 
-
-<script async id="asciicast-569727" src="https://asciinema.org/a/569727.js"></script>
+[![asciicast](https://asciinema.org/a/714634.svg)](https://asciinema.org/a/714634)
 
 <!--https://github.com/kpako3rbp/frontend-project-lvl2-->
