@@ -1,6 +1,133 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1743304875495" clover="3.2.0">
-  <project timestamp="1743304875495" name="All files">
-    <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0" elements="0" coveredelements="0" complexity="0" loc="0" ncloc="0" packages="0" files="0" classes="0"/>
+<coverage generated="1744462810006" clover="3.2.0">
+  <project timestamp="1744462810006" name="All files">
+    <metrics statements="97" coveredstatements="54" conditionals="49" coveredconditionals="24" methods="18" coveredmethods="14" elements="164" coveredelements="92" complexity="0" loc="97" ncloc="97" packages="4" files="6" classes="6"/>
+    <package name="src">
+      <metrics statements="24" coveredstatements="24" conditionals="11" coveredconditionals="11" methods="4" coveredmethods="4"/>
+      <file name="genTree.js" path="/var/www/test_gid_msk_usr/data/www/test.gid-msk.ru/frontend-project-46/src/genTree.js">
+        <metrics statements="19" coveredstatements="19" conditionals="10" coveredconditionals="10" methods="3" coveredmethods="3"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="4" count="1" type="stmt"/>
+        <line num="5" count="5" type="stmt"/>
+        <line num="6" count="5" type="stmt"/>
+        <line num="7" count="5" type="stmt"/>
+        <line num="8" count="5" type="stmt"/>
+        <line num="10" count="5" type="stmt"/>
+        <line num="11" count="18" type="cond" truecount="4" falsecount="0"/>
+        <line num="12" count="4" type="stmt"/>
+        <line num="19" count="14" type="cond" truecount="2" falsecount="0"/>
+        <line num="20" count="2" type="stmt"/>
+        <line num="27" count="12" type="cond" truecount="2" falsecount="0"/>
+        <line num="28" count="5" type="stmt"/>
+        <line num="35" count="7" type="cond" truecount="2" falsecount="0"/>
+        <line num="36" count="4" type="stmt"/>
+        <line num="43" count="3" type="stmt"/>
+        <line num="49" count="5" type="stmt"/>
+        <line num="52" count="1" type="stmt"/>
+        <line num="53" count="1" type="stmt"/>
+      </file>
+      <file name="index.js" path="/var/www/test_gid_msk_usr/data/www/test.gid-msk.ru/frontend-project-46/src/index.js">
+        <metrics statements="5" coveredstatements="5" conditionals="1" coveredconditionals="1" methods="1" coveredmethods="1"/>
+        <line num="6" count="1" type="stmt"/>
+        <line num="7" count="1" type="stmt"/>
+        <line num="9" count="1" type="stmt"/>
+        <line num="10" count="1" type="stmt"/>
+        <line num="11" count="1" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.formats">
+      <metrics statements="8" coveredstatements="3" conditionals="6" coveredconditionals="1" methods="1" coveredmethods="1"/>
+      <file name="Formater.js" path="/var/www/test_gid_msk_usr/data/www/test.gid-msk.ru/frontend-project-46/src/formats/Formater.js">
+        <metrics statements="8" coveredstatements="3" conditionals="6" coveredconditionals="1" methods="1" coveredmethods="1"/>
+        <line num="4" count="1" type="stmt"/>
+        <line num="5" count="1" type="cond" truecount="1" falsecount="1"/>
+        <line num="6" count="1" type="stmt"/>
+        <line num="8" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="9" count="0" type="stmt"/>
+        <line num="11" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="12" count="0" type="stmt"/>
+        <line num="14" count="0" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.formats.formaters">
+      <metrics statements="55" coveredstatements="22" conditionals="26" coveredconditionals="11" methods="11" coveredmethods="7"/>
+      <file name="Plain.js" path="/var/www/test_gid_msk_usr/data/www/test.gid-msk.ru/frontend-project-46/src/formats/formaters/Plain.js">
+        <metrics statements="33" coveredstatements="0" conditionals="15" coveredconditionals="0" methods="4" coveredmethods="0"/>
+        <line num="4" count="0" type="stmt"/>
+        <line num="5" count="0" type="cond" truecount="0" falsecount="1"/>
+        <line num="6" count="0" type="cond" truecount="0" falsecount="4"/>
+        <line num="7" count="0" type="stmt"/>
+        <line num="9" count="0" type="stmt"/>
+        <line num="10" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="11" count="0" type="stmt"/>
+        <line num="13" count="0" type="stmt"/>
+        <line num="15" count="0" type="stmt"/>
+        <line num="16" count="0" type="stmt"/>
+        <line num="18" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="19" count="0" type="stmt"/>
+        <line num="20" count="0" type="stmt"/>
+        <line num="21" count="0" type="stmt"/>
+        <line num="24" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="25" count="0" type="stmt"/>
+        <line num="26" count="0" type="stmt"/>
+        <line num="27" count="0" type="stmt"/>
+        <line num="28" count="0" type="stmt"/>
+        <line num="31" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="32" count="0" type="stmt"/>
+        <line num="33" count="0" type="stmt"/>
+        <line num="34" count="0" type="stmt"/>
+        <line num="35" count="0" type="stmt"/>
+        <line num="38" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="39" count="0" type="stmt"/>
+        <line num="40" count="0" type="stmt"/>
+        <line num="41" count="0" type="stmt"/>
+        <line num="42" count="0" type="stmt"/>
+        <line num="44" count="0" type="stmt"/>
+        <line num="47" count="0" type="stmt"/>
+        <line num="50" count="0" type="stmt"/>
+        <line num="52" count="0" type="stmt"/>
+      </file>
+      <file name="Stylish.js" path="/var/www/test_gid_msk_usr/data/www/test.gid-msk.ru/frontend-project-46/src/formats/formaters/Stylish.js">
+        <metrics statements="22" coveredstatements="22" conditionals="11" coveredconditionals="11" methods="7" coveredmethods="7"/>
+        <line num="4" count="1" type="stmt"/>
+        <line num="5" count="68" type="stmt"/>
+        <line num="11" count="68" type="cond" truecount="2" falsecount="0"/>
+        <line num="14" count="42" type="stmt"/>
+        <line num="16" count="1" type="stmt"/>
+        <line num="17" count="21" type="cond" truecount="2" falsecount="0"/>
+        <line num="18" count="14" type="stmt"/>
+        <line num="21" count="7" type="stmt"/>
+        <line num="23" count="9" type="cond" truecount="2" falsecount="0"/>
+        <line num="25" count="9" type="stmt"/>
+        <line num="29" count="1" type="cond" truecount="1" falsecount="0"/>
+        <line num="30" count="5" type="stmt"/>
+        <line num="31" count="18" type="stmt"/>
+        <line num="32" count="18" type="stmt"/>
+        <line num="34" count="18" type="cond" truecount="2" falsecount="0"/>
+        <line num="35" count="4" type="stmt"/>
+        <line num="40" count="14" type="cond" truecount="2" falsecount="0"/>
+        <line num="41" count="4" type="stmt"/>
+        <line num="42" count="4" type="stmt"/>
+        <line num="47" count="10" type="stmt"/>
+        <line num="49" count="5" type="stmt"/>
+        <line num="51" count="1" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.parsers">
+      <metrics statements="10" coveredstatements="5" conditionals="6" coveredconditionals="1" methods="2" coveredmethods="2"/>
+      <file name="Parsers.js" path="/var/www/test_gid_msk_usr/data/www/test.gid-msk.ru/frontend-project-46/src/parsers/Parsers.js">
+        <metrics statements="10" coveredstatements="5" conditionals="6" coveredconditionals="1" methods="2" coveredmethods="2"/>
+        <line num="5" count="2" type="stmt"/>
+        <line num="8" count="2" type="stmt"/>
+        <line num="9" count="2" type="stmt"/>
+        <line num="11" count="2" type="cond" truecount="1" falsecount="1"/>
+        <line num="12" count="2" type="stmt"/>
+        <line num="14" count="0" type="cond" truecount="0" falsecount="4"/>
+        <line num="15" count="0" type="stmt"/>
+        <line num="16" count="0" type="stmt"/>
+        <line num="18" count="0" type="stmt"/>
+        <line num="22" count="0" type="stmt"/>
+      </file>
+    </package>
   </project>
 </coverage>

@@ -3,7 +3,7 @@ lint:
 test:
 	NODE_OPTIONS=--experimental-vm-modules npx jest
 test-coverage:
-	npm run coverage
+	NODE_OPTIONS=--experimental-vm-modules npm run coverage
 diff:
 	node bin/gendiff.js __fixtures__/file01.json __fixtures__/file02.json
 diff2:

@@ -9,7 +9,7 @@ const formater = (data, format) => {
     return plain(data);
   }
   if (format === 'json') {
-    return JSON.stringify(data,null, 4);
+    return JSON.stringify(data, null, 4);
   }
   return '';
 };
