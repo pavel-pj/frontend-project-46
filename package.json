@@ -18,7 +18,8 @@
   "type": "module",
   "main": "src/index.js",
   "bin": {
-    "code": "bin/gendiff.js"
+    "code": "bin/gendiff.js",
+    "gendiff": "./bin/gendiff.js"
   },
   "scripts": {
     "test": "jest",
