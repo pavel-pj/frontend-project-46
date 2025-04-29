@@ -20,12 +20,18 @@ export default (tree) => {
 
     return `{\n${Object.keys(item)
       .map((key) => {
-        const value = _.isPlainObject(item[key]) ? normalizeValue(item[key], depth + 2) : item[key];
+        let value = null;
+        if (_.isPlainObject(item[key])) {
+          value = normalizeValue(item[key], depth + 2);
+        } else {
+          value = item[key];
+        }
 
         return `${getSpace(depth + 3)}${key}: ${value}`;
       })
       .join('\n')}\n${getSpace(depth + 1)}}`;
   };
+
   const iter = (items, depth = 1) => {
     const result = items.map((item) => {
       const { type, key, value } = item;
@@ -44,9 +50,12 @@ export default (tree) => {
           depth,
         )}\n${getSpace(depth)}${getPrefix('added')}${key}: ${normalizeValue(itemAdded, depth)}`;
       }
+
       return `${getSpace(depth)}${prefix}${key}: ${normalizeValue(value, depth)}`;
     });
+
     return result.join('\n');
   };
+
   return `{\n${iter(tree)}\n}`;
 };
