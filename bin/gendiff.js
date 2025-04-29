@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 import { program } from 'commander';
 import parser from '../src/index.js';
-
+/*
 program
   .name('gendiff')
   .version('1.0.0')
@@ -14,7 +14,8 @@ program
     'stylish',
   )
   .action((filepath1, filepath2, options) => {
-    console.log(parser(filepath1, filepath2, options.format));
+   // console.log(parser(filepath1, filepath2, options.format));
   });
 
 program.parse();
+*/
