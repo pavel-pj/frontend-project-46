@@ -5,6 +5,7 @@ import { fileURLToPath } from 'url';
 import { FlatCompat } from '@eslint/eslintrc';
 import pluginJs from '@eslint/js';
 import importPlugin from 'eslint-plugin-import';
+import stylistic from 'eslint-plugin-stylistic';
 
 // mimic CommonJS variables -- not needed if using CommonJS
 const __filename = fileURLToPath(import.meta.url);
@@ -28,14 +29,20 @@ export default [
         sourceType: 'module',
       },
     },
-    plugins: { import: importPlugin },
+    plugins: {
+      stylistic: require('eslint-plugin-stylistic'),
+
+      import: importPlugin },
+
     rules: {
       ...importPlugin.configs.recommended.rules,
+      'stylistic/semi': ['error', 'always'],
     },
   },
   ...compat.extends('airbnb-base'),
   {
     rules: {
+      'linebreak-style': 0,
       'no-underscore-dangle': [
         'error',
         {
@@ -52,6 +59,7 @@ export default [
       'import/no-named-as-default-member': 'off',
       'no-console': 'off',
       'import/no-extraneous-dependencies': 'off',
+      '@stylistic/semi': ['error', 'always'], // или 'never', в зависимости от нужного стиля
     },
   },
 ];
