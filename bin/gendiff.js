@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
-import { program } from 'commander';
-import gendiff from '../src/index.js';
+import { program } from 'commander'
+import gendiff from '../src/index.js'
 
 program
   .name('gendiff')
@@ -13,10 +13,10 @@ program
     'stylish',
   )
   .argument('<filepath1>', 'path to first file, supported formats: json, yaml, yml')
-  .argument('<filepath2>', 'path to second file, supported formats: json, yaml, yml');
+  .argument('<filepath2>', 'path to second file, supported formats: json, yaml, yml')
 
 program.action((filepath1, filepath2, options) => {
-  console.log(gendiff(filepath1, filepath2, options.format));
+  console.log(gendiff(filepath1, filepath2, options.format))
 });
 
 program.parse();

@@ -15,34 +15,34 @@ const getStringifiedValue = ({ type, value }) => {
 export default (tree) => {
   const iter = (items, path = '') => {
     const result = items.map((item) => {
-      const { type, key, value } = item;
+      const { type, key, value } = item
 
       if (type === 'nested') {
-        return iter(value, `${path}${key}.`);
+        return iter(value, `${path}${key}.`)
       }
 
       if (type === 'added') {
-        return `Property '${path}${key}' was added with value: ${getStringifiedValue(item)}`;
+        return `Property '${path}${key}' was added with value: ${getStringifiedValue(item)}`
       }
 
       if (type === 'removed') {
-        return `Property '${path}${key}' was removed`;
+        return `Property '${path}${key}' was removed`
       }
 
       if (type === 'updated') {
-        const [itemRemoved, itemAdded] = value;
+        const [itemRemoved, itemAdded] = value
 
         return `Property '${path}${key}' was updated. From ${getStringifiedValue({
           type: 'removed',
           value: itemRemoved,
-        })} to ${getStringifiedValue({ type: 'added', value: itemAdded })}`;
+        })} to ${getStringifiedValue({ type: 'added', value: itemAdded })}`
       }
 
-      return '';
-    }, []);
+      return ''
+    }, [])
 
-    return result.filter((v) => v !== '').join('\n');
+    return result.filter((v) => v !== '').join('\n')
   };
 
-  return iter(tree);
+  return iter(tree)
 };

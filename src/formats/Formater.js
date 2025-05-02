@@ -1,16 +1,16 @@
-import stylish from './formaters/Stylish.js';
-import plain from './formaters/Plain.js';
+import stylish from './formaters/Stylish.js'
+import plain from './formaters/Plain.js'
 
 const formater = (data, format) => {
   if (format === 'stylish') {
-    return stylish(data);
+    return stylish(data)
   }
   if (format === 'plain') {
-    return plain(data);
+    return plain(data)
   }
   if (format === 'json') {
-    return JSON.stringify(data, null, 4);
+    return JSON.stringify(data, null, 4)
   }
-  return '';
+  return ''
 };
-export default formater;
+export default formater
