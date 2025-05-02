@@ -2,7 +2,7 @@ import path from 'path'
 import fs from 'fs'
 import gendiff from '../src/index.js'
 
-const getFixturePath = (filename) => path.resolve('__fixtures__', filename)
+const getFixturePath = filename => path.resolve('__fixtures__', filename)
 const result01 = fs.readFileSync(getFixturePath('result01.txt'), 'utf-8').trim()
 
 test('stylish test', () => {
