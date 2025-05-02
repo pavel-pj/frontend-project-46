@@ -41,7 +41,7 @@ export default (tree) => {
       return ''
     }, [])
 
-    return result.filter((v) => v !== '').join('\n')
+    return result.filter(v => v !== '').join('\n')
   }
 
   return iter(tree)

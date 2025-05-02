@@ -6,12 +6,12 @@ export default (tree) => {
       added: '+ ',
       removed: '- ',
       default: '  ',
-    };
+    }
 
     return prefixes[type] || prefixes.default
-  };
+  }
 
-  const getSpace = (depth) => getPrefix('default').repeat(depth)
+  const getSpace = depth => getPrefix('default').repeat(depth)
 
   const normalizeValue = (item, depth) => {
     if (!_.isPlainObject(item)) {
@@ -23,7 +23,7 @@ export default (tree) => {
         let value = null
         if (_.isPlainObject(item[key])) {
           value = normalizeValue(item[key], depth + 2)
-        } 
+        }
         else {
           value = item[key]
         }

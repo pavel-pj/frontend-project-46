@@ -2,7 +2,7 @@ import fs from 'fs'
 import path from 'path'
 import yaml from 'js-yaml'
 
-const openFile = (file) => fs.readFileSync(path.resolve(file), 'utf-8')
+const openFile = file => fs.readFileSync(path.resolve(file), 'utf-8')
 
 export default (file) => {
   const type = file.split('.').at(-1)
@@ -14,10 +14,11 @@ export default (file) => {
   if (type === 'yml' || type === 'yaml') {
     try {
       return yaml.load(content)
-    } catch (e) {
+    }
+    catch (e) {
       console.log(e)
     }
   }
 
   throw new Error(`Неизвестный формат файла: ${type}`)
-};
+}

@@ -12,5 +12,5 @@ const formater = (data, format) => {
     return JSON.stringify(data, null, 4)
   }
   return ''
-};
+}
 export default formater
