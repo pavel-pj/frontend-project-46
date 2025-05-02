@@ -23,14 +23,15 @@ export default (tree) => {
         let value = null
         if (_.isPlainObject(item[key])) {
           value = normalizeValue(item[key], depth + 2)
-        } else {
+        } 
+        else {
           value = item[key]
         }
 
         return `${getSpace(depth + 3)}${key}: ${value}`
       })
       .join('\n')}\n${getSpace(depth + 1)}}`
-  };
+  }
 
   const iter = (items, depth = 1) => {
     const result = items.map((item) => {
@@ -44,7 +45,7 @@ export default (tree) => {
       }
 
       if (type === 'updated') {
-        const [itemRemoved, itemAdded] = value;
+        const [itemRemoved, itemAdded] = value
         return `${getSpace(depth)}${getPrefix('removed')}${key}: ${normalizeValue(
           itemRemoved,
           depth,
@@ -52,10 +53,10 @@ export default (tree) => {
       }
 
       return `${getSpace(depth)}${prefix}${key}: ${normalizeValue(value, depth)}`
-    });
+    })
 
     return result.join('\n')
-  };
+  }
 
   return `{\n${iter(tree)}\n}`
-};
+}

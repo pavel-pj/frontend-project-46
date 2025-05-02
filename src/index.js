@@ -8,4 +8,4 @@ export default (file1, file2, format = 'stylish') => {
   const result = gentree(data1, data2)
   const formated = formater(result, format)
   return formated
-};
+}

@@ -1,16 +1,16 @@
-import _ from 'lodash';
+import _ from 'lodash'
 
 const getStringifiedValue = ({ type, value }) => {
   if (type === 'nested' || _.isPlainObject(value)) {
-    return '[complex value]';
+    return '[complex value]'
   }
 
   if (typeof value === 'string') {
-    return `'${value}'`;
+    return `'${value}'`
   }
 
-  return value;
-};
+  return value
+}
 
 export default (tree) => {
   const iter = (items, path = '') => {
@@ -42,7 +42,7 @@ export default (tree) => {
     }, [])
 
     return result.filter((v) => v !== '').join('\n')
-  };
+  }
 
   return iter(tree)
-};
+}
