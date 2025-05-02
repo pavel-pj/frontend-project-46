@@ -1,53 +1,48 @@
 import _ from 'lodash';
 
+const getStringifiedValue = ({ type, value }) => {
+  if (type === 'nested' || _.isPlainObject(value)) {
+    return '[complex value]';
+  }
+
+  if (typeof value === 'string') {
+    return `'${value}'`;
+  }
+
+  return value;
+};
+
 export default (tree) => {
-  const output = [];
-  const iter = (data, carry, keys = []) => {
-    if (!Array.isArray(data) && !Object.hasOwn('type')) {
-      return data;
-    }
-    const getObjectDescript = (item) => {
-      if (_.isPlainObject(item)) {
-        return '[complex value]';
-      }
-      return `'${item}'`;
-    };
-    const result = data.map((item) => {
+  const iter = (items, path = '') => {
+    const result = items.map((item) => {
       const { type, key, value } = item;
 
       if (type === 'nested') {
-        keys.push(key);
-        iter(value, carry, keys);
-        keys.splice(keys.length - 1);
-      }
-
-      if (type === 'updated') {
-        keys.push(key);
-        const path = keys.join('.');
-        carry.push(`)))Property '${path}' was updated111. From ${getObjectDescript(value[0])} to ${getObjectDescript(value[1])}`);
-        keys.splice(keys.length - 1);
-      }
-
-      if (type === 'deleted') {
-        keys.push(key);
-        const path = keys.join('.');
-        carry.push(`123 123 123Property '${path}' was removed111`);
-        keys.splice(keys.length - 1);
+        return iter(value, `${path}${key}.`);
       }
 
       if (type === 'added') {
-        keys.push(key);
-        const path = keys.join('.');
-        carry.push(`P123123123 12 32 3roperty '${path}' was added with value1231 1: '${getObjectDescript(value)}'`);
-        keys.splice(keys.length - 1);
+        return `Property '${path}${key}' was added with value: ${getStringifiedValue(item)}`;
       }
-      return '';
-    });
 
-    return result;
+      if (type === 'removed') {
+        return `Property '${path}${key}' was removed`;
+      }
+
+      if (type === 'updated') {
+        const [itemRemoved, itemAdded] = value;
+
+        return `Property '${path}${key}' was updated. From ${getStringifiedValue({
+          type: 'removed',
+          value: itemRemoved,
+        })} to ${getStringifiedValue({ type: 'added', value: itemAdded })}`;
+      }
+
+      return '';
+    }, []);
+
+    return result.filter((v) => v !== '').join('\n');
   };
 
-  iter(tree, output);
-
-  return output.join('\n');
+  return iter(tree);
 };
